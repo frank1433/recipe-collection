@@ -2,6 +2,7 @@ package guru.springframework.recipecollection.domain;
 
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaBuilder;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -20,9 +21,10 @@ public class Recipe {
     private Integer servings;
     private String source;
     private String url;
+    @Lob
     private String directions;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients;
+    private Set<Ingredient> ingredients =new HashSet<>();
     @Lob
     private Byte[] image;
     @OneToOne(cascade = CascadeType.ALL)
@@ -32,7 +34,7 @@ public class Recipe {
     private Difficulty difficulty;
     @ManyToMany
     @JoinTable(name = "recipe_category", joinColumns = @JoinColumn(columnDefinition = "recipe_id"), inverseJoinColumns = @JoinColumn(columnDefinition = "category_id"))
-    private Set<Category> category;
+    private Set<Category> category=new HashSet<>();
 
 
     public Set<Ingredient> getIngredients() {

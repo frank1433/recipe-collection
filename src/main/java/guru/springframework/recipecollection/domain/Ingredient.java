@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 public class Ingredient {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String description;
     private BigDecimal amount;
     @ManyToOne
@@ -19,12 +20,22 @@ public class Ingredient {
     @OneToOne(fetch =FetchType.EAGER)
     private UnitOfMeasure uom;
 
-    public UnitOfMeasure getUnitOfMeasure() {
-        return uom;
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure uom,Recipe recipe) {
+        this.description = description;
+        this.amount = amount;
+        this.recipe = recipe;
+        this.uom = uom;
     }
 
-    public void setUnitOfMeasure(UnitOfMeasure uom) {
-        this.uom = uom;
+    public Ingredient() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getDescription() {
@@ -49,5 +60,13 @@ public class Ingredient {
 
     public void setRecipe(Recipe recipe) {
         this.recipe = recipe;
+    }
+
+    public UnitOfMeasure getUom() {
+        return uom;
+    }
+
+    public void setUom(UnitOfMeasure uom) {
+        this.uom = uom;
     }
 }

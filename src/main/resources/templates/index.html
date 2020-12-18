@@ -5,7 +5,17 @@
     <title>Recipe Home</title>
 </head>
 <body>
-<h1 th:text="'Recepe Index page test ooo!!!'">Recipe Index Page</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>description</th>
+    </tr>
+    <tr th:each="recipe : ${recipes} ">
+        <td th:text="${recipe.id}">123</td>
+        <td th:text="${recipe.description}"> tast good</td>
+    </tr>
+
+</table>
 
 </body>
 </html>
