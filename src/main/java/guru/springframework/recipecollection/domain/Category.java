@@ -1,5 +1,7 @@
 package guru.springframework.recipecollection.domain;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -7,6 +9,8 @@ import java.util.Set;
  * @author frank
  * @create 2020-12-17
  */
+@Data
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Category {
     @Id
@@ -16,27 +20,7 @@ public class Category {
     @ManyToMany(mappedBy = "category")
     private Set<Recipe> recipe;
 
-    public Long getId() {
-        return id;
+    public Category() {
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Recipe> getRecipes() {
-        return recipe;
-    }
-
-    public void setRecipes(Set<Recipe> recipes) {
-        this.recipe = recipes;
-    }
 }
