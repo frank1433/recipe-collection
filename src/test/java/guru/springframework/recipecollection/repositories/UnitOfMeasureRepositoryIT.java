@@ -22,7 +22,7 @@ class UnitOfMeasureRepositoryIT {
     UnitOfMeasureRepository unitOfMeasureRepository;
 
     @BeforeEach
-    void setUp() {
+    void setUp() throws Exception{
     }
 
     @Test

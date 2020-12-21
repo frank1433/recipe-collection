@@ -17,7 +17,7 @@ import java.util.Optional;
  * @author frank
  * @create 2020-12-16
  */
-@Slf4j
+
 @Controller
 public class IndexController {
     @Resource
@@ -30,7 +30,7 @@ public class IndexController {
     @RequestMapping({"","/", "/index","/index.html"})
     public String getIndexPage(Model model){
         model.addAttribute("recipes", recipeService.getRecipes());
-        log.debug("inside controller");
+//        log.debug("inside controller");
         return "index";
     }
 }
