@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="recipe" type="guru.springframework.recipecollection.domain.Recipe"*/-->
+
+<h1 th:text="${recipe.description}"></h1>
+<h8 th:text="${recipe.notes.recipeNotes}"></h8>
+<table border="1">
+    <tr>
+        <th>昵称</th>
+        <th>年龄</th>
+        <th>index</th>
+        <th>count</th>
+        <th>size</th>
+        <th>current.nickname</th>
+        <th>even</th>
+        <th>odd</th>
+        <th>first</th>
+        <th>last</th>
+    </tr>
+    <tr th:each="ingredients : ${recipe.ingredient}">
+        <td th:text="${ingredients.description}">nickname</td>
+    </tr>
+</table>
+
+
+</body>
+</html>

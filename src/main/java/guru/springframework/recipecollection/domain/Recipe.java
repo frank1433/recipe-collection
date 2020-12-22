@@ -28,7 +28,7 @@ public class Recipe {
     private String directions;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
-    private Set<Ingredient> ingredients = new HashSet<>();
+    private Set<Ingredient> ingredient = new HashSet<>();
 
     @Lob
     private Byte[] image;
@@ -52,16 +52,16 @@ public class Recipe {
 
     public Recipe addIngredient(Ingredient ingredient){
         ingredient.setRecipe(this);
-        this.ingredients.add(ingredient);
+        this.ingredient.add(ingredient);
         return this;
     }
 
-    public void setCategories(Set<Category> categories) {
-        this.category = categories;
-    }
-
-    protected boolean canEqual(final Object other) {
-        return other instanceof Recipe;
-    }
+//    public void setCategories(Set<Category> categories) {
+//        this.category = categories;
+//    }
+//
+//    protected boolean canEqual(final Object other) {
+//        return other instanceof Recipe;
+//    }
 
 }
